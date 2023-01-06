@@ -95,3 +95,27 @@ const notMarkovSays = markov.says.myBind(pavlov);
 notMarkovSays("meow", "me");
 // Pavlov says meow to me!
 // true
+
+
+function curriedSum(numArgs) {
+    let numbers = []
+    let total = 0
+    return function _curriedSum(num1) {
+        total += num1
+        numbers.push(num1)
+        if (numbers.length === numArgs) {
+            return total
+        }
+        return _curriedSum
+    }
+
+}
+
+const curry = curriedSum(4);
+console.log(curry(5)(30)(20)(1)) // => 56
+
+Function.prototype.curry = function(numArgs) {
+    let nums = []
+
+
+}
